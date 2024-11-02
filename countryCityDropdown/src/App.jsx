@@ -1,33 +1,60 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect } from 'react'
 import './App.css'
 
+const countries = [
+  {
+    name: "India",
+    value: "IN",
+    cities: [
+      "Delhi", "Mumbai"
+    ]
+  },
+  {
+    name: "Pak",
+    value:"PK",
+    cities: [
+      "Lahore", "Karachi"
+    ]
+  },
+  {
+    name: "Bangladesh",
+    value: "BG",
+    cities: [
+      "Dhaka", "Chittagong"
+    ]
+  }
+]
+
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [country, setCountry] = useState('')
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <select
+      value={country}
+      onChange={(e) => {
+        console.log(e.target.value)
+        setCountry(e.target.value)
+      }}
+      >
+        {countries.map((item, index) => {
+          return (
+            <option value={index} key={item.value}>
+              {item.name}
+            </option>
+          )
+        })}
+      </select>
+
+      <select>
+        {countries[country] && countries[country].cities.map((item, index) => {
+          return (
+            <option value={index}>{item}</option>
+          )
+        })}
+      </select>
+
     </>
   )
 }
