@@ -14,6 +14,7 @@ Welcome to **CodeSnippetsJSReact**! This repository is a collection of common ta
 - [Contributing](#contributing)
 
 ## Introduction
+
 The goal of this repository is to provide a comprehensive resource for developers working with JavaScript and React. Whether you're looking for a quick solution or trying to learn new concepts, this collection aims to be a valuable tool in your development journey. Here, you'll find some common snippets used for coding that can make your life easier.
 
 ## Installation
